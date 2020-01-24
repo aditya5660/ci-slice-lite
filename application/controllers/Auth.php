@@ -33,7 +33,7 @@ class Auth extends CI_Controller
      */
     public function login()
     {
-        $data['title'] = $this->lang->line('login_heading');
+        $data['PAGE_TITLE'] = $this->lang->line('login_heading');
         
         view('auth.login', $data);
     }

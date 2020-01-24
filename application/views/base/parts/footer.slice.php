@@ -1,29 +1,13 @@
-<footer class="py-5">
-    <div class="container">
-        <div class="row align-items-center justify-content-xl-between">
-            <div class="col-xl-6">
-                <div class="copyright text-center text-xl-left text-muted">
-                    © {{date('Y')}} <a href="https://codeinaja.net" class="font-weight-bold ml-1"
-                        target="_blank">Codeinaja Tim</a>
-                </div>
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block" style="font-size:10px">Page
-                    rendered in in {elapsed_time} seconds</span>
-            </div>
-            <div class="col-xl-6">
-                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation" class="nav-link"
-                            target="_blank">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
-                            class="nav-link" target="_blank">MIT License</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
+<footer class="footer">
+    <div class="container-fluid clearfix">
+        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © {{date('Y')}} <a
+                href="https://codeinaja.net" target="_blank">Codeinaja Team</a>. All rights
+            reserved.</span><br>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block" style="font-size:10px">Page
+            rendered in in {elapsed_time} seconds</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made
+            with <i class="mdi mdi-heart text-danger"></i>
+        </span>
     </div>
 </footer>
