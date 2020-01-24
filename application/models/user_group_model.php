@@ -39,7 +39,21 @@ class User_group_model extends CI_Model
             $result = $query->row_array();
             $query->free_result();
             return $result;
-          }
-          return array();
+        }
+        return array();
+    }
+    public function get_user_detail_with_all_roles($params)
+    {
+        $sql = "SELECT a.username,a.email,a.first_name,a.last_name,c.name as group_name,c.default_page FROM users a 
+        INNER JOIN users_groups b ON a.id = b.user_id 
+        INNER JOIN groups c ON b.group_id = c.id
+        WHERE a.id = ?";
+        $query = $this->db->query($sql,$params);
+        if ($query->num_rows() > 0) {
+            $result = $query->row_array();
+            $query->free_result();
+            return $result;
+        }
+        return array();
     }
 }

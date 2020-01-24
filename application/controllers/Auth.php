@@ -15,8 +15,8 @@ class Auth extends CI_Controller
         $this->load->database();
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->helper(['url', 'language']);
-		$this->load->model('user_group_model');
-        $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+		$this->load->model('User_group_model');
+        // $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
         $this->lang->load('auth');
     }
 
@@ -25,30 +25,7 @@ class Auth extends CI_Controller
      */
     public function index()
     {
-        if (!$this->ion_auth->logged_in()) {
-            // redirect them to the login page
-            redirect('auth/login', 'refresh');
-        } elseif (!$this->ion_auth->is_admin()) { // remove this elseif if you want to enable this for non-admins
-            // redirect them to the home page because they must be an administrator to view this
-            show_error('You must be an administrator to view this page.');
-        } else {
-            $this->data['title'] = $this->lang->line('index_heading');
-            
-            // set the flash data error message if there is one
-            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-            //list the users
-            $this->data['users'] = $this->ion_auth->users()->result();
-            
-            //USAGE NOTE - you can do more complicated queries like this
-            //$this->data['users'] = $this->ion_auth->where('field', 'value')->users()->result();
-            
-            foreach ($this->data['users'] as $k => $user) {
-                $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-            }
-
-            view('auth.login', $this->data);
-        }
+        
     }
 
     /**
@@ -76,12 +53,12 @@ class Auth extends CI_Controller
 
             if ($this->ion_auth->login($identity, $password, $remember)) {
 
-				$user_group = $this->user_group_model->get_user_group_by_identity(array('email' => $identity ));
+				$user_group = $this->User_group_model->get_user_group_by_identity(array('email' => $identity ));
 				
                 $this->send_notification($user_group['default_page'], 'success', $this->ion_auth->messages());
             } else {
-				print_r($this->ion_auth->errors());die();
-                $this->send_notification('auth/login', 'error', $asd);
+				
+                $this->send_notification('auth/login', 'error', $this->ion_auth->errors());
                 // if the login was un-successful// use redirects instead of loading views for compatibility with MY_Controller libraries
             }
         } else {
@@ -108,10 +85,8 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->data['title'] = "Logout";
-
         // log the user out
         $this->ion_auth->logout();
-
         // redirect them to the login page
         redirect('auth/login', 'refresh');
     }

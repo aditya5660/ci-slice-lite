@@ -1,17 +1,17 @@
 @if(session("error") !== NULL )
-    @if (session("form_error") !== NULL)
+    @if (session("error") !== NULL)
     <div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <i class="fa fa-exclamation-triangle fa-sm"></i> <strong> Error,</strong> {{ session("form_error") }}
+        <i class="fa fa-exclamation-triangle fa-sm"></i> <strong> Error,</strong> {{ session("error") }}
     </div>
     @else
     <div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <i class="fa fa-exclamation-triangle fa-sm"></i> <strong> Error,</strong> {{ session("error") }}
+        <i class="fa fa-exclamation-triangle fa-sm"></i> <strong> Error,</strong> {{ session("form_error") }}
     </div>
     @endif
 @elseif (session("success")!== NULL)
