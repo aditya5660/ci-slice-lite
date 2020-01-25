@@ -21,14 +21,6 @@ class Auth extends CI_Controller
     }
 
     /**
-     * Redirect if needed, otherwise display the user list
-     */
-    public function index()
-    {
-        
-    }
-
-    /**
      * Log the user in
      */
     public function login()
@@ -167,8 +159,6 @@ class Auth extends CI_Controller
         } else {
             $this->form_validation->set_rules('identity', $this->lang->line('forgot_password_validation_email_label'), 'required|valid_email');
         }
-
-
         if ($this->form_validation->run() === false) {
             $this->data['type'] = $this->config->item('identity', 'ion_auth');
             // setup the input
@@ -178,14 +168,15 @@ class Auth extends CI_Controller
             ];
 
             if ($this->config->item('identity', 'ion_auth') != 'email') {
+
                 $this->data['identity_label'] = $this->lang->line('forgot_password_identity_label');
             } else {
                 $this->data['identity_label'] = $this->lang->line('forgot_password_email_identity_label');
             }
-
             // set any errors and display the form
-            $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-            $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'forgot_password', $this->data);
+            $this->send_notification('auth/forgot_password', 'error', validation_errors());
+
+            view('auth.forgot_password', $this->data);
         } else {
             $identity_column = $this->config->item('identity', 'ion_auth');
             $identity = $this->ion_auth->where($identity_column, $this->input->post('identity'))->users()->row();
@@ -196,9 +187,7 @@ class Auth extends CI_Controller
                 } else {
                     $this->ion_auth->set_error('forgot_password_email_not_found');
                 }
-
-                $this->session->set_flashdata('message', $this->ion_auth->errors());
-                redirect("auth/forgot_password", 'refresh');
+                $this->send_notification('auth/forgot_password', 'error', $this->ion_auth->errors());
             }
 
             // run the forgotten password method to email an activation code to the user
@@ -206,11 +195,12 @@ class Auth extends CI_Controller
 
             if ($forgotten) {
                 // if there were no errors
-                $this->session->set_flashdata('message', $this->ion_auth->messages());
-                redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
+                // $this->session->set_flashdata('message', $this->ion_auth->messages());
+                $this->send_notification('auth/login', 'success', $this->ion_auth->messages());
+
+                // redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
             } else {
-                $this->session->set_flashdata('message', $this->ion_auth->errors());
-                redirect("auth/forgot_password", 'refresh');
+                $this->send_notification('auth/forgot_password', 'error', $this->ion_auth->errors());
             }
         }
     }
