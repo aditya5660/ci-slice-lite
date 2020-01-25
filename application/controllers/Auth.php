@@ -560,40 +560,6 @@ class Auth extends CI_Controller
         $this->data['groups'] = $groups;
         $this->data['currentGroups'] = $currentGroups;
 
-        $this->data['first_name'] = [
-            'name'  => 'first_name',
-            'id'    => 'first_name',
-            'type'  => 'text',
-            'value' => $this->form_validation->set_value('first_name', $user->first_name),
-        ];
-        $this->data['last_name'] = [
-            'name'  => 'last_name',
-            'id'    => 'last_name',
-            'type'  => 'text',
-            'value' => $this->form_validation->set_value('last_name', $user->last_name),
-        ];
-        $this->data['company'] = [
-            'name'  => 'company',
-            'id'    => 'company',
-            'type'  => 'text',
-            'value' => $this->form_validation->set_value('company', $user->company),
-        ];
-        $this->data['phone'] = [
-            'name'  => 'phone',
-            'id'    => 'phone',
-            'type'  => 'text',
-            'value' => $this->form_validation->set_value('phone', $user->phone),
-        ];
-        $this->data['password'] = [
-            'name' => 'password',
-            'id'   => 'password',
-            'type' => 'password'
-        ];
-        $this->data['password_confirm'] = [
-            'name' => 'password_confirm',
-            'id'   => 'password_confirm',
-            'type' => 'password'
-        ];
 
         $this->_render_page('auth/edit_user', $this->data);
     }

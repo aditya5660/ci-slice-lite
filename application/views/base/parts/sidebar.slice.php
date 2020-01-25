@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
                 <div class="profile-image">
                     <img class="img-xs rounded-circle" src="{{base_url('assets/images/faces/face8.jpg')}}"
                         alt="profile image">
@@ -24,6 +24,12 @@
             <a class="nav-link" href="{{base_url('groups')}}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Groups</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{base_url('users')}}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Users</span>
             </a>
         </li>
         <li class="nav-item nav-category">Documentation</li>
