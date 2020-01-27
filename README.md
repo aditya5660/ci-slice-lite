@@ -26,7 +26,7 @@ $ git clone https://github.com/aditya5660/ci-slice-lite.git
 Create an empty mySql or MariaDb database (default db name is ci_blox) and a user (default is root/no password). Note that the database.php file in app/config contains these configuration settings
 * Import database 
 Import database from app/sql/ion_auth.sql
-* Change database setting on .env 
+* Change database setting app/config/database.php 
 
 * Run your local development server
 
