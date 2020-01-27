@@ -29,10 +29,10 @@ Create an empty mySql or MariaDb database (default db name is ci_blox) and a use
 
 ### Cridentials
 ```sh
-admin@admin.com
+email : admin@admin.com
 ```
 ```sh
-password
+pasword : password
 ```
 
 ### Todos
