@@ -1,0 +1,67 @@
+a:3:{s:4:"time";i:1579964986;s:3:"ttl";i:3600;s:4:"data";s:3001:"<!DOCTYPE html>
+<html lang="en">
+<?php //  This app created with cislice v1.0  ?><?php //  Developed by Codeinaja.net  ?><?php //  All Copyright reserved --}}  ?><head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?php echo $PAGE_TITLE; ?> - CISLICE LITE v1.0</title>
+	<!-- plugins:css -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/iconfonts/ionicons/css/ionicons.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/iconfonts/typicons/src/font/typicons.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/css/vendor.bundle.base.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/css/vendor.bundle.addons.css'); ?>">
+	<!-- endinject -->
+	<!-- plugin css for this page -->
+	<!-- End plugin css for this page -->
+	<!-- inject:css -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/shared/style.css'); ?>">
+	<!-- endinject -->
+	<!-- Layout styles -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/demo_1/style.css'); ?>">
+	<!-- End Layout styles -->
+	<link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png'); ?>"/>
+</head>
+
+<body>
+	<div class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+        <?php echo $this->_include('base.parts.navbar'); ?>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+			<?php echo $this->_include('base.parts.sidebar'); ?>
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<?php echo $this->_include('base.parts.notification'); ?>
+                    <?php //    ?><?php echo $this->_yield('content'); ?>
+				</div>
+				<!-- content-wrapper ends -->
+				<!-- partial:partials/_footer.html -->
+				<?php echo $this->_include('base.parts.footer'); ?>
+				<!-- partial -->
+			</div>
+			<!-- main-panel ends -->
+		</div>
+		<!-- page-body-wrapper ends -->
+	</div>
+	<!-- container-scroller -->
+	<!-- plugins:js -->
+	<script src="<?php echo base_url('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/vendors/js/vendor.bundle.addons.js'); ?>"></script>
+	<!-- endinject -->
+	<!-- Plugin js for this page-->
+	<!-- End plugin js for this page-->
+	<!-- inject:js -->
+	<script src="<?php echo base_url('assets/js/shared/off-canvas.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/shared/misc.js'); ?>"></script>
+	<!-- endinject -->
+	<!-- Custom js for this page-->
+	<script src="<?php echo base_url('assets/js/demo_1/dashboard.js'); ?>"></script>
+	<!-- End custom js for this page-->
+</body>
+
+</html>
+";}

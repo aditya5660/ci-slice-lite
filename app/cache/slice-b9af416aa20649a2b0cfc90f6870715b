@@ -1,0 +1,52 @@
+a:3:{s:4:"time";i:1579918425;s:3:"ttl";i:3600;s:4:"data";s:1459:"<?php $this->_opening_section('content'); ?>
+
+<div class="row">
+	<div class="col-lg-12 grid-margin stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<div class="row mx-1 mb-3">
+					<h4 class="card-title">Group List</h4>
+					<a href="<?php echo $BASE_URL.'add'; ?>" class="ml-auto btn btn-primary btn-sm">Add Group</a>
+				</div>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>GROUP NAME</th>
+							<th>GROUP DESC</th>
+							<th>DEFAULT PAGE</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php if (count($rs_group) > 0): ?><?php foreach  ($rs_group as $item): ?>	
+						<tr>
+							<td><?php echo $item['id']; ?></td>
+							<td><?php echo $item['name']; ?></td>
+							<td><?php echo $item['description']; ?></td>
+							<td><?php echo $item['default_page']; ?></td>
+							<td>
+								<div class="float-right">
+									<a href="<?php echo $BASE_URL.'edit/'.$item['id']; ?>" class="btn btn-sm btn-info">
+										<i class="mdi mdi-pencil"></i>
+									</a>
+									<a href="<?php echo $BASE_URL.'delete/'.$item['id']; ?>" class="btn btn-sm btn-danger">
+										<i class="mdi mdi-delete"></i>
+									</a>
+								</div>
+							</td>
+						</tr>						
+						<?php endforeach; ?><?php else: ?>
+							
+						<?php endif; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<?php $this->_closing_section(); ?>
+<?php echo $this->_include('base.app'); ?>";}
