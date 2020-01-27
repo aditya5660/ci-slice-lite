@@ -27,6 +27,14 @@ Create an empty mySql or MariaDb database (default db name is ci_blox) and a use
 * Run your local development server
 * Change database setting on .env 
 
+### Cridentials
+```sh
+admin@admin.com
+```
+```sh
+password
+```
+
 ### Todos
 
  - Create CRUD Generator
